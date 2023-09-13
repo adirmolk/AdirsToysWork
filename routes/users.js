@@ -66,8 +66,8 @@ router.post("/login", async (req, res) => {
       return res.status(401).json({ err: "Password not match" });
     }
 
-    const token = createToken(user.id,role);
-    res.json({ token });
+    const token = createToken(user.id,user.role);
+    res.json({ token,role:user.role });
   } catch (err) {
     console.log(err);
     res.status(502).json({ err });

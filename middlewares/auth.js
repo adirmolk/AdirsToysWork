@@ -29,7 +29,7 @@ exports.authAdmin = async (req, res, next) => {
       .json({ err: "You need send token to this endpoint or url 111" });
   }
   try {
-    const decodeToken = jwt.verify(token, process.env.TOKEN_SECRET);
+    const decodeToken = jwt.verify(token, process.env.SECRET);
     if (decodeToken.role != "admin") {
       return res
         .status(401)
